@@ -39,5 +39,4 @@ public class Colors {
 	public final static String ANSI_ITALIC = ESC + "[3m";
 	public final static String ANSI_UNDERLINE = ESC + "[4m";
 	public final static String ANSI_BLINK = ESC + "[5m";
-
 }
