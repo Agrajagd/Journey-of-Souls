@@ -1,0 +1,11 @@
+Forward progress items on my list:
+
+- Implement a method of versioning for the database
+- Flesh out the command interpreters
+-- Come up with a way to re-use core command interpreter code to prevent code duplication
+-- Core Interpreter (in-game commands), Nanny Interpreter (pre-login), Editor Interpreter (writing, notes, OLC stuff, etc.)
+-- Custom Interpreters - Scripted items, rooms, mobiles, etc. may have their own custom command interpreters for doing contextual
+   things when you're in, near, or using them.
+-- Chaining Interpreters - Come up with a way to chain interpreters so that a command will pass through multiple interpreters
+   until it finds one that satisfies the command.
+
