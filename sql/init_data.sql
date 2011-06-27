@@ -16,24 +16,6 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
--- Table structure for table `areas`
---
-
-DROP TABLE IF EXISTS `areas`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `areas` (
-  `area_id` int(10) NOT NULL AUTO_INCREMENT,
-  `area_short_name` varchar(16) NOT NULL,
-  `area_long_name` varchar(128) NOT NULL,
-  `area_credits` text NOT NULL,
-  `area_difficulty` varchar(128) NOT NULL,
-  PRIMARY KEY (`area_id`),
-  UNIQUE KEY `area_short_name` (`area_short_name`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `areas`
 --
 
@@ -42,21 +24,6 @@ LOCK TABLES `areas` WRITE;
 INSERT INTO `areas` VALUES (1,'immortal','Immortals\' Private Area','JoS Immortals','None');
 /*!40000 ALTER TABLE `areas` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `character_skills`
---
-
-DROP TABLE IF EXISTS `character_skills`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `character_skills` (
-  `char_id` int(10) NOT NULL,
-  `char_skill_id` int(10) NOT NULL,
-  `char_skill_points` smallint(5) NOT NULL,
-  PRIMARY KEY (`char_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `character_skills`
@@ -68,26 +35,6 @@ LOCK TABLES `character_skills` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `characters`
---
-
-DROP TABLE IF EXISTS `characters`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `characters` (
-  `character_id` int(10) NOT NULL AUTO_INCREMENT,
-  `owner_id` int(10) NOT NULL,
-  `character_name` varchar(64) NOT NULL,
-  `race_id` int(10) NOT NULL,
-  `gender` enum('Male','Female') NOT NULL,
-  `level` tinyint(1) NOT NULL DEFAULT '0',
-  `in_room` int(10) NOT NULL DEFAULT '1',
-  `in_position` varchar(64) NOT NULL,
-  PRIMARY KEY (`character_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=36 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `characters`
 --
 
@@ -97,48 +44,14 @@ LOCK TABLES `characters` WRITE;
 UNLOCK TABLES;
 
 --
--- Table structure for table `commands`
---
-
-DROP TABLE IF EXISTS `commands`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `commands` (
-  `command_name` varchar(64) NOT NULL,
-  `command_package` varchar(512) NOT NULL,
-  `command_class` varchar(128) NOT NULL,
-  `command_usable_by` tinyint(1) NOT NULL,
-  `command_log` tinyint(1) NOT NULL,
-  PRIMARY KEY (`command_name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `commands`
 --
 
 LOCK TABLES `commands` WRITE;
 /*!40000 ALTER TABLE `commands` DISABLE KEYS */;
-INSERT INTO `commands` VALUES ('say','communication','Say',0,0),('reboot','wizard','Reboot',3,1),('shutdown','wizard','Shutdown',3,1),('quit','communication','Quit',0,0),('who','communication','Who',0,0),('emote','communication','Emote',0,0),('reload','wizard','Reload',2,0),('force','wizard','Force',1,0),('commands','information','Commands',0,0),('socials','information','Socials',0,0),('look','communication','Look',0,0),('memory','wizard','Memory',3,0),('promote','wizard','Promote',3,1),('demote','wizard','Demote',3,1),('quitmenu','communication','Quitmenu',0,0),('save','information','Save',0,0),('echo','wizard','Echo',2,0),('disconnect','wizard','Disconnect',2,0),('tp','wizard','Teleport',1,0),('join','wizard','Join',1,0),('gecho','wizard','Gecho',2,0),('room','olc','Room',2,0),('rsave','olc','Rsave',2,0),('rarea','olc','Rarea',2,0),('rname','olc','Rname',2,0),('rdesc','olc','Rdesc',2,0),('list','olc','List',2,0),('rid','olc','Rid',2,0),('area','olc','Area',2,0),('rdelete','olc','Rdelete',2,0),('aname','olc','Aname',2,0),('asname','olc','Asname',2,0),('addcommand','wizard','Addcommand',3,0),('exit','olc','Exit',2,0),('position','olc','Position',2,0),('pdelete','olc','Pdelete',2,0),('move','movement','Move',0,0),('testeditor','wizard','Testeditor',2,0),('exits','information','Exits',0,0);
+INSERT INTO `commands` VALUES ('say','communication','Say',0,0),('reboot','wizard','Reboot',3,1),('shutdown','wizard','Shutdown',3,1),('quit','communication','Quit',0,0),('who','communication','Who',0,0),('emote','communication','Emote',0,0),('reload','wizard','Reload',2,0),('force','wizard','Force',1,0),('commands','information','Commands',0,0),('socials','information','Socials',0,0),('look','communication','Look',0,0),('promote','wizard','Promote',3,1),('demote','wizard','Demote',3,1),('quitmenu','communication','Quitmenu',0,0),('save','information','Save',0,0),('echo','wizard','Echo',2,0),('disconnect','wizard','Disconnect',2,0),('tp','wizard','Teleport',1,0),('join','wizard','Join',1,0),('gecho','wizard','Gecho',2,0),('room','olc','Room',2,0),('rsave','olc','Rsave',2,0),('rarea','olc','Rarea',2,0),('rname','olc','Rname',2,0),('rdesc','olc','Rdesc',2,0),('list','olc','List',2,0),('rid','olc','Rid',2,0),('area','olc','Area',2,0),('rdelete','olc','Rdelete',2,0),('aname','olc','Aname',2,0),('asname','olc','Asname',2,0),('addcommand','wizard','Addcommand',3,0),('exit','olc','Exit',2,0),('position','olc','Position',2,0),('pdelete','olc','Pdelete',2,0),('move','movement','Move',0,0),('testeditor','wizard','Testeditor',2,0),('exits','information','Exits',0,0);
 /*!40000 ALTER TABLE `commands` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `exits`
---
-
-DROP TABLE IF EXISTS `exits`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `exits` (
-  `exit_id` int(10) NOT NULL AUTO_INCREMENT,
-  `exit_room_id` int(10) NOT NULL,
-  `exit_to_room_id` int(10) NOT NULL,
-  `exit_direction` int(10) NOT NULL,
-  `exit_description` text NOT NULL,
-  PRIMARY KEY (`exit_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=40 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `exits`
@@ -146,39 +59,8 @@ CREATE TABLE `exits` (
 
 LOCK TABLES `exits` WRITE;
 /*!40000 ALTER TABLE `exits` DISABLE KEYS */;
-INSERT INTO `exits` VALUES (2,2,4,1,'Blah.'),(5,2,1,25,'Blah.'),(4,2,3,5,'Blah.'),(7,1,4,25,'None.'),(8,4,1,26,'None.'),(11,12,2,13,'An exit leading northeastup.'),(12,2,12,24,'None.'),(13,12,5,7,'An exit leading northwest.'),(14,5,12,6,'None.'),(15,1,12,3,'An exit leading east.'),(16,12,1,4,'An exit leading west.'),(27,12,1,3,'An exit leading east.'),(28,1,12,4,'An exit leading west.'),(29,12,12,25,'An exit leading up.'),(30,12,12,26,'An exit leading down.'),(31,12,2,17,'An exit leading northdown.'),(32,2,12,10,'An exit leading southup.'),(33,12,1,24,'An exit leading southwestdown.'),(34,1,12,13,'\"Huh?\"'),(35,1,1,7,'An exit leading northwest.'),(36,1,1,6,'Exit leading southeast.'),(37,1,3,8,'To the southwest, by some strange power, the void shapes into a dark corner.'),(38,3,1,5,'To the northeast, the corner breaks into an endless void.'),(39,4,1,8,'A simple wooden door leads out of the room to the southwest.');
 /*!40000 ALTER TABLE `exits` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `races`
---
-
-DROP TABLE IF EXISTS `races`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `races` (
-  `race_id` int(10) NOT NULL AUTO_INCREMENT,
-  `race_name` varchar(32) NOT NULL,
-  `phys_str_mod` decimal(5,2) NOT NULL,
-  `endur_mod` decimal(5,2) NOT NULL,
-  `con_mod` decimal(5,2) NOT NULL,
-  `speed_mod` decimal(5,2) NOT NULL,
-  `acc_mod` decimal(5,2) NOT NULL,
-  `agi_mod` decimal(5,2) NOT NULL,
-  `dex_mod` decimal(5,2) NOT NULL,
-  `int_mod` decimal(5,2) NOT NULL,
-  `wis_mod` decimal(5,2) NOT NULL,
-  `psychic_mod` decimal(5,2) NOT NULL,
-  `focus_mod` decimal(5,2) NOT NULL,
-  `men_endur_mod` decimal(5,2) NOT NULL,
-  `men_con_mod` decimal(5,2) NOT NULL,
-  `immunity` int(10) NOT NULL,
-  `resistence` int(10) NOT NULL,
-  `vulnerability` int(10) NOT NULL,
-  PRIMARY KEY (`race_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `races`
@@ -191,24 +73,6 @@ INSERT INTO `races` VALUES (1,'Human','1.00','1.00','1.00','1.00','1.00','1.00',
 UNLOCK TABLES;
 
 --
--- Table structure for table `rooms`
---
-
-DROP TABLE IF EXISTS `rooms`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `rooms` (
-  `room_id` int(10) NOT NULL AUTO_INCREMENT,
-  `room_area_id` int(10) NOT NULL,
-  `room_name` varchar(128) NOT NULL,
-  `room_description` text NOT NULL,
-  `room_owner` varchar(32) NOT NULL DEFAULT 'None',
-  `room_positions` text NOT NULL,
-  PRIMARY KEY (`room_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `rooms`
 --
 
@@ -219,22 +83,6 @@ INSERT INTO `rooms` VALUES (1,1,'The Void','There is nothingness all around you.
 UNLOCK TABLES;
 
 --
--- Table structure for table `skills`
---
-
-DROP TABLE IF EXISTS `skills`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `skills` (
-  `skill_id` int(10) NOT NULL AUTO_INCREMENT,
-  `skill_name` varchar(64) NOT NULL,
-  `skill_description` text NOT NULL,
-  `skill_stats_csv` varchar(64) NOT NULL,
-  PRIMARY KEY (`skill_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `skills`
 --
 
@@ -242,29 +90,6 @@ LOCK TABLES `skills` WRITE;
 /*!40000 ALTER TABLE `skills` DISABLE KEYS */;
 /*!40000 ALTER TABLE `skills` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `socials`
---
-
-DROP TABLE IF EXISTS `socials`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `socials` (
-  `social_name` varchar(32) NOT NULL,
-  `social_format_1` varchar(256) NOT NULL,
-  `social_format_2` varchar(256) NOT NULL,
-  `social_format_3` varchar(256) NOT NULL,
-  `social_format_4` varchar(256) NOT NULL,
-  `social_format_5` varchar(256) NOT NULL,
-  `social_format_6` varchar(256) NOT NULL,
-  `social_format_7` varchar(256) NOT NULL,
-  `social_format_8` varchar(256) NOT NULL,
-  `social_format_9` varchar(256) NOT NULL,
-  `social_format_10` varchar(256) NOT NULL,
-  UNIQUE KEY `social_name` (`social_name`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `socials`
@@ -277,32 +102,6 @@ INSERT INTO `socials` VALUES ('applaud','$n applauds.','You applaud.','$n applau
 UNLOCK TABLES;
 
 --
--- Table structure for table `stats`
---
-
-DROP TABLE IF EXISTS `stats`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `stats` (
-  `stat_char_id` int(10) NOT NULL,
-  `stat_phys_str` decimal(10,8) NOT NULL,
-  `stat_endur` decimal(10,8) NOT NULL,
-  `stat_con` decimal(10,8) NOT NULL,
-  `stat_speed` decimal(10,8) NOT NULL,
-  `stat_acc` decimal(10,8) NOT NULL,
-  `stat_agi` decimal(10,8) NOT NULL,
-  `stat_dex` decimal(10,8) NOT NULL,
-  `stat_int` decimal(10,8) NOT NULL,
-  `stat_wis` decimal(10,8) NOT NULL,
-  `stat_psychic` decimal(10,8) NOT NULL,
-  `stat_focus` decimal(10,8) NOT NULL,
-  `stat_men_endur` decimal(10,8) NOT NULL,
-  `stat_men_con` decimal(10,8) NOT NULL,
-  PRIMARY KEY (`stat_char_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
 -- Dumping data for table `stats`
 --
 
@@ -310,22 +109,6 @@ LOCK TABLES `stats` WRITE;
 /*!40000 ALTER TABLE `stats` DISABLE KEYS */;
 /*!40000 ALTER TABLE `stats` ENABLE KEYS */;
 UNLOCK TABLES;
-
---
--- Table structure for table `users`
---
-
-DROP TABLE IF EXISTS `users`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `users` (
-  `user_id` int(10) NOT NULL AUTO_INCREMENT,
-  `user_name` text NOT NULL,
-  `user_password` varchar(32) NOT NULL,
-  `user_email` varchar(256) DEFAULT NULL,
-  PRIMARY KEY (`user_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
-/*!40101 SET character_set_client = @saved_cs_client */;
 
 --
 -- Dumping data for table `users`
@@ -350,4 +133,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2011-01-14  9:59:01
+-- Dump completed on 2011-06-27  7:29:37

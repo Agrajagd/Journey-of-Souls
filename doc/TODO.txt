@@ -1,6 +1,5 @@
 Forward progress items on my list:
 
-- Implement a method of versioning for the database
 - Flesh out the command interpreters
 -- Come up with a way to re-use core command interpreter code to prevent code duplication
 -- Core Interpreter (in-game commands), Nanny Interpreter (pre-login), Editor Interpreter (writing, notes, OLC stuff, etc.)

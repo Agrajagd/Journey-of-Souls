@@ -1,0 +1,13 @@
+To setup a new test instance of the JoS DB:
+
+1. Run the SQL in sql/init_db.sql
+2. Run the SQL in sql/init_data.sql
+3. Apply all of the files in sql/patches/ in order
+
+To create a new patch, create a file with the name sql/patches/patch_`date +%s`.sql
+and place your SQL statements for the changes you're making / have made to the DB
+in that file.
+
+If, for some reason, you're working on this codebase on a Windows machine, you can
+replace `date +%s` with the current UNIX Epoch Timestamp by visiting: www.unixtimestamp.com
+
