@@ -21,5 +21,5 @@ Journey of Souls is licensed under the New BSD License. Full details are in the
 LICENSE.txt file that should be packaged with this source. The license can also
 be found by going to: http://www.josmud.com/license.php
 
-Please visit the Wiki at https://github.com/Atrophius/Journey-of-Souls/wiki for
+Please read the documentation under doc/BUILDING_RUNNING_FROM_SOURCE.txt for
 more information about the codebase and how to use it.

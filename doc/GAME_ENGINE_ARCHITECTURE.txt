@@ -1,0 +1,10 @@
+To be written by Jeremy.
+
+Quick Bullet Points:
+
+- Core Code Only: Keep as much out of this layer as feasible.
+- Embedded Scripting: A Scripting Language (hopefully JavaScript via Rhino) will
+	power most of the scriptable events within the game.
+- MySQL Backed: Game data will be stored in a MySQL Database.
+- Generic: Nothing game-specific should be in the codebase. It should be
+  possible to build entirely different games based off the same codebase.

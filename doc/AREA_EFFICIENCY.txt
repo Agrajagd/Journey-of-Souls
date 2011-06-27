@@ -1,0 +1,20 @@
+JoS is being built with the understanding that Java is not necessarily the most
+memory-efficient programming language on the planet. Steps will be taken to try
+to keep the game server lean, primarily with regards to Area Loading and how
+much of the game world is kept in-memory at once.
+
+The game will have a method of distinguishing between important areas that need
+to be available at all times (major cities, common areas, and paths between)
+and lesser areas that are primarily used for questing or general hunting of
+mobiles. The game will also keep track of whether or not there are any players
+in any given area and flag lesser areas that are empty for deletion from the
+game's internal memory structures.
+
+When the game detects that a player is about to cross into an area that has been
+unloaded from memory, it will quickly fetch the Area information from the
+database along with a small grid of rooms that the player is most likely to
+enter. The rest of the area will be lazily loaded in the background as the
+player explores.
+
+When the player departs from the area, it will go a few ticks in the game loop
+as an active, empty area before being flagged for removal again.

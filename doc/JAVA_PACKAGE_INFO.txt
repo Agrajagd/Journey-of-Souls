@@ -1,0 +1,11 @@
+- com.josmud - Base Package. Contains class Game with main().
+- com.josmud.commands - Base commands package.
+- com.josmud.commands.communication - Commands for communicating and interacting with other players in the MUD.
+- com.josmud.commands.information - Commands for fetching information about the environment.
+- com.josmud.commands.movement - Commands related to moving around in the MUD.
+- com.josmud.commands.olc - Commands related to the "Online Creation" system, or in-game Area Builder.
+- com.josmud.commands.wizard - Special commands only available to the Game Wizards and Arch Wizards.
+- com.josmud.constants - Core game constant values.
+- com.josmud.core - Core classes which include Descriptor.
+- com.josmud.interfaces - Game-specific Interfaces.
+- com.josmud.util - Common utilities, like the dice roller and text manipulation classes.

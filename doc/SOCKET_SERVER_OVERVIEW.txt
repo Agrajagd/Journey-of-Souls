@@ -1,0 +1,11 @@
+Journey of Souls (JoS) is a multi-threaded game server with support for multiple
+simultaneous client connections. The class which contains the listening socket
+is a singleton thread object that is constantly listening for and accepting
+new connections.
+
+When a client connects, the server thread spawns a client "Descriptor" thread
+that holds all of the details on the connected client. Descriptors are
+organized within the Server Thread in a HashMap that ties the player's
+Character name to the Descriptor for easy access. Until a player character name
+is available, Descriptors are placed in a "nanny" collection that facilitates
+the authentication and/or character creation workflows.
