@@ -1,0 +1,66 @@
+Interface (com.josmud.interfaces.Interpreter):
+
+public final static int LOG_NORMAL = 0
+public final static int LOG_ALWAYS = 1
+public final static int LOG_NEVER  = 2
+
+-- Commands will have options which state how and when they should be logged. Certain
+   Wizard commands will always be logged. Certain private commands (password changes,
+   for example) will never be logged. Other commands will be logged if explicitly
+   requested.
+
+public boolean interpret(String input)
+
+-- Interpreter.interpret() is the method called to see if the input sent is satisfied
+   by this interpreter. It's contains the specific code to interpret the command that
+   was sent and returns true, if successful. If this method returns false, you should
+   move on to the next Interpreter in the stack until you find one that satisfies the
+   input. If no Interpreters satisfy the input that was sent, respond appropriately
+   to the player ("Huh?").
+
+Abstract class (com.josmud.commands.BaseInterpreter) implements Interpreter:
+
+protected Character ch = null
+protected HashMap commands = null
+
+protected String processInput(String input)
+
+-- BaseInterpreter.processInput() is used to take the input and process it down to
+   an actual command with arguments. processInput() should expand aliases (like
+   single- and double-quotes) to full commands (say, for quotes) as well as removing
+   context words, like prepositions (from, on, in, etc.), from the argument set for
+   a command ("put coins in bag" becomes "put coins bag").
+
+abstract void buildCommandTable()
+
+-- BaseInterpreter.buildCommandTable() should be implemented by the extending class.
+   This is the method that will be used to fill-in the command lookup table that's
+   associated to the instance of the Interpreter.
+
+Class (com.josmud.commands.CoreInterpreter) extends BaseInterpreter:
+
+-- This class is for all of the core game commands. The commands hashmap is populated
+   by the commands table in the database. Each player gets their own lookup table so
+   that commands can be restricted on a per-player basis. (Character abusing a command?
+   Just remove it from his lookup table and he no longer has access to use it.)
+
+Class (com.josmud.commands.SocialInterpreter) extends BaseInterpreter:
+
+-- This class is for all of the game socials (emotes like wave, hug, cough, etc). The
+   commands hashmap is populated by the socials table in the database.
+
+Class (com.josmud.commands.NannyInterpreter) extends BaseInterpreter:
+
+-- This class is for processing input from players who have connected but have not
+   completely logged into the game, yet. The commands hashmap will be hard-coded to
+   the commands available pre-login. Most of the logic for getting a player through
+   the creation/login phase will be kept here.
+
+Class (com.josmud.commands.ScriptedInterpreter) extends BaseInterpreter:
+
+-- This class is for creating scripted interpreters that are associated with rooms,
+   mobiles, objects, etc. A ScriptedInterpreter gets created and assigned to a
+   character as part of an event (like onStartUse, for items). ScriptedInterpreters
+   enable special context-sensitive commands to be given to players for interacting
+   with the environment, NPCs, and objects in their inventory.
+
