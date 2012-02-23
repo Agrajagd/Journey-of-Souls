@@ -1,0 +1,15 @@
+List of Design concepts for JoS:
+
+- Main Game class is a thread which is simply the game loop.
+- Server class is a thread which listens on the designated port number and
+  accepts new connections. New connections are then spawned into their own
+  Descriptor threads.
+- Descriptors are threads that are specific to each connected player and are
+  what keep track of each player's input and output for the game.
+- Each Java-backed command is an individual class that conforms to the contract
+  of the Command interface.
+
+- The game will primarily be scripted in JavaScript once all of the core objects
+  and systems are completed in Java. (See: SCRIPTING_NOTES.txt)
+- A lot of JoS will be event-driven and there will be quite a lot of events that
+  can be scripted. (See: EVENTS.txt)

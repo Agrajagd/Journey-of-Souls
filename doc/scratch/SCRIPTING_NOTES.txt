@@ -1,0 +1,9 @@
+Scripting Usage:
+
+1. Environmental effects -- A script can be attached directly to a room to
+   generate environmental effects.
+2. Event Scripting -- A script can be attached to an event and will be called
+   whenever that event is triggered.
+3. Item Scripting -- A script can be attached to an item and can give that item
+   special properties.
+4. 

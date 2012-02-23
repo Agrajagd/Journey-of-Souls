@@ -12,6 +12,12 @@
     <import file="nbproject/build-impl.xml"/>
 
     <target name="-post-jar">
+		<copy todir="${dist.dir}/scripts">
+			<fileset dir="scripts">
+				<include name="**" />
+			</fileset>
+		</copy>
+
 		<copy file="config/log4j.properties" todir="${dist.dir}"/>
 		<copy file="config/josmud.properties" todir="${dist.dir}"/>
 		<copy file="config/josmud.log" todir="${dist.dir}"/>

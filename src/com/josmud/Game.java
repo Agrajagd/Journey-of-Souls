@@ -45,14 +45,27 @@ public class Game extends Thread {
 
 		logger.info("Starting " + config.getProperty("game.name") + " ...");
 
+		/**
+		 * Giant block of "TODO" line-items to give a rough idea of what
+		 * all is left to be done before the game is considered "complete" ...
+		 *
+		 * A lot of these will most likely happen in other classes.
+		 */
 		logger.info("(TODO) Initializing Database ...");
 		logger.info("(TODO) Building Command Table ...");
 		logger.info("(TODO) Building Socials Table ...");
 		logger.info("(TODO) Building Race Table ...");
-		logger.info("(TODO) Loading Game Areas ...");
+		logger.info("(TODO) Loading Essential Game Areas ...");
+		logger.info("(TODO) Compiling Area-level Scripts ...");
 		logger.info("(TODO) Loading Rooms ...");
-		logger.info("(TODO) Linking Rooms and Loading Exits ...");
+		logger.info("(TODO) Compiling Room-level Scripts ...");
+		logger.info("(TODO) Loading Exits and Linking Rooms ...");
+		logger.info("(TODO) Compiling Exit-level Scripts ...");
 		logger.info("(TODO) Shuffling Room Positions ...");
+		logger.info("(TODO) Loading Mobiles ...");
+		logger.info("(TODO) Compiling Mobile-level Scripts ...");
+		logger.info("(TODO) Loading Items ...");
+		logger.info("(TODO) Compiling Item-level Scripts ...");
 		logger.info("(TODO) Initializing Short Direction Names ...");
 
 		try {

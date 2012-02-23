@@ -64,3 +64,11 @@ Class (com.josmud.commands.ScriptedInterpreter) extends BaseInterpreter:
    enable special context-sensitive commands to be given to players for interacting
    with the environment, NPCs, and objects in their inventory.
 
+-- This class will act as a proxy to an attached CompiledScript. The CompiledScript
+   will need to implement the ScriptedInterpreter Interface and will be checked by
+   using Invocable.getInterface(CompiledScript, ScriptedInterpreter).
+
+-- We'll need a way to differentiate ScriptedInterpreters from standard scripting
+   when storing the data on scripts so that when we fetch it, we'll know to create
+   a ScriptedInterpreter object.
+

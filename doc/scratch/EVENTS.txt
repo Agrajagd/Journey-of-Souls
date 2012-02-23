@@ -1,0 +1,36 @@
+A lot of JoS will be event-driven and there will be quite a lot of events that
+can be scripted. This scratch pad is for trying to come up with a list of events
+that will be used in the game.
+
+Room-based Events
+=================
+
+- onEnter
+- onExit
+- onLook
+
+Item-based Events
+=================
+
+- onUse
+- onWield (for weapons)
+- onWear (for equipment)
+- onEat (for food)
+- onDrink (for drinks)
+- onThrow
+- onPickup
+- onDrop
+
+Mobile-based Events
+===================
+
+Most Mobile-based events can also be applied to actual player characters, unless
+otherwise specified.
+
+- onAttack
+- onSleep
+- onRest
+- onMove
+- onDeath
+- onSpeak
+- onEmote
